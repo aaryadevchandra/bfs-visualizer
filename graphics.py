@@ -98,9 +98,9 @@ def main():
 
     while run:
 
-        sleep(5)
+        sleep(2)
 
-        if init_flag is 0:
+        if init_flag == 0:
             init_graph(graph, node_list, window, occurred_spots) 
             init_flag = 1 
 
