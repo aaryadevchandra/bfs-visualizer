@@ -60,14 +60,14 @@ def returnNodeIndices(node):
 
 def trackDiscoveredNodes(window, discovered_nodes_render, node_list, graph):
 
-    for i in range(0, len(discovered_nodes_render), 2):
-        pygame.draw.circle(window, (0, 0, 255),
-                           discovered_nodes_render[i].coords, 20)
+    # for i in range(0, len(discovered_nodes_render), 2):
+    #     pygame.draw.circle(window, (0, 0, 255),
+    #                        discovered_nodes_render[i].coords, 20)
 
-        try:
-            pygame.draw.line(window, (255, 0, 0), discovered_nodes_render[i].coords, discovered_nodes_render[i+1].coords, 2)
-        except:
-            pass
+    #     try:
+    #         pygame.draw.line(window, (255, 0, 0), discovered_nodes_render[i].coords, discovered_nodes_render[i+1].coords, 2)
+    #     except:
+    #         pass
 
     pygame.font.init()
     nodeFont = pygame.font.SysFont('Comic Sans MS', 19)
@@ -76,6 +76,18 @@ def trackDiscoveredNodes(window, discovered_nodes_render, node_list, graph):
         pygame.draw.circle(window, (255, 255, 0), node_list[i].coords, 20)
         textsurface = nodeFont.render(f"{node_list[i].number}", False, (255, 0, 255))
         window.blit(textsurface, (node_list[i].coords[0] - 9, node_list[i].coords[1] - 15))
+
+    for i in range(0, len(discovered_nodes_render), 2):
+        pygame.draw.circle(window, (0, 0, 255),
+                           discovered_nodes_render[i].coords, 20)
+
+        textsurface = nodeFont.render(f"{discovered_nodes_render[i].number}", False, (255, 0, 255))
+        window.blit(textsurface, (discovered_nodes_render[i].coords[0] - 9, discovered_nodes_render[i].coords[1] - 15))
+
+        try:
+            pygame.draw.line(window, (255, 0, 0), discovered_nodes_render[i].coords, discovered_nodes_render[i+1].coords, 2)
+        except:
+            pass
 
     
 
